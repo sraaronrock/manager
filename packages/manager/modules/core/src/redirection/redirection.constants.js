@@ -87,8 +87,8 @@ export default {
     autorenew: `${managerRoot.CA}/${universes.dedicated}/${URI.autorenew}`,
     billing: `${managerRoot.CA}/${universes.dedicated}/${URI.billing}`,
     catalog: `${managerRoot.CA}/${URI.catalog}`,
-    contactManagement: '',
-    contacts: '',
+    contactManagement: `${managerRoot.CA}/${universes.dedicated}/${URI.contactManagement}`,
+    contacts: `${managerRoot.CA}/${universes.dedicated}/${URI.contacts}`,
     debtPay: `${managerRoot.CA}/${universes.dedicated}/${URI.debtPay}`,
     guides: {
       home: {
