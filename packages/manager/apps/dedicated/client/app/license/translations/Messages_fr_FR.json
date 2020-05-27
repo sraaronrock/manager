@@ -687,5 +687,6 @@
   "license_potential_problem_isOsPleskOnyx": "Le serveur ne semble pas exécuter une distribution Plesk Onyx",
   "license_designation_CPANEL_premier_option": "jusqu'à {{ numberOfCPANEL }} comptes CPANEL",
   "license_designation_CPANEL_admin_option": "2-5 comptes CPANEL",
-  "license_designation_CPANEL_pro_option": "6-30 comptes CPANEL"
+  "license_designation_CPANEL_pro_option": "6-30 comptes CPANEL",
+  "license_designation_CPANEL_version_option-cpanel": "jusqu'à {{ licenseCount }} comptes CPANEL"
 }
