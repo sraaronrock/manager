@@ -79,6 +79,7 @@
           border: solid 1px @voip-plan-main-color;
           align-items: center;
           background-color: white;
+          margin-bottom: 10px;
         }
       }
 
@@ -238,8 +239,8 @@
           display: flex;
           align-items: stretch;
           background-color: lighten(@oui-color-secondary, 30%);
-          width: 40px;
-          height: 40px;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
 
           &:hover {
@@ -251,7 +252,6 @@
           width: @voip-plan-main-elements-size;
           height: @voip-plan-main-elements-size;
           border: none;
-          background-color: @oui-color-secondary;
           border-radius: 50%;
 
           &:hover,
@@ -277,7 +277,7 @@
 
         &--included {
           width: @voip-plan-main-elements-size;
-          padding: 8px 0;
+          padding: 0;
           background-color: transparent;
           border: none;
         }
@@ -426,7 +426,7 @@
 
         &:last-child::after {
           border: 0 none;
-          border-top: 3px solid #122844;
+          border-top: 3px solid #0050d7;
           width: 25px;
           top: 50%;
         }
@@ -473,7 +473,7 @@
 
           &:last-child::after {
             border: 0 none;
-            border-top: 3px solid #122844;
+            border-top: 3px solid #0050d7;
             width: 25px;
             top: 50%;
           }
@@ -501,7 +501,7 @@
         display: flex;
         align-items: center;
         padding: 10px 10px;
-        width: 375px;
+        width: 400px;
         height: 64px;
         justify-content: inherit;
       }
@@ -514,7 +514,7 @@
     &__number {
       display: flex;
       align-items: center;
-      width: 375px;
+      width: 400px;
       justify-content: space-between;
       padding: 0 10px;
       z-index: 5;
@@ -545,14 +545,14 @@
         height: inherit;
 
         &-icon {
-          font-size: 35px !important;
+          font-size: 25px !important;
           margin-left: 3px !important;
         }
 
         &-wrapper {
           background-color: lighten(@oui-color-secondary, 30%);
-          width: 40px;
-          height: 40px;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
 
           &:hover {
@@ -573,7 +573,7 @@
       padding: 0 10px;
       z-index: 4;
       margin-top: 8px;
-      width: 375px;
+      width: 400px;
       justify-content: space-between;
       align-items: center;
 

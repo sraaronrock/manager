@@ -13,7 +13,7 @@
       &-wrapper {
         position: absolute;
         top: 0;
-        left: 382px;
+        left: 405px;
       }
 
       &-container {
@@ -224,8 +224,8 @@
           display: flex;
           align-items: stretch;
           background-color: lighten(@oui-color-secondary, 30%);
-          width: 40px;
-          height: 40px;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
 
           &:hover {
@@ -237,7 +237,6 @@
           width: @voip-plan-main-elements-size;
           height: @voip-plan-main-elements-size;
           border: none;
-          background-color: @oui-color-secondary;
           border-radius: 50%;
 
           &:hover,
@@ -263,7 +262,7 @@
 
         &--included {
           width: @voip-plan-main-elements-size;
-          padding: 8px 0;
+          padding: 0;
           background-color: transparent;
           border: none;
         }
@@ -390,10 +389,10 @@
         &::before {
           content: '';
           position: absolute;
-          border-bottom: 3px solid #122844;
+          border-bottom: 3px solid #0050d7;
           width: 240px;
           left: -220px;
-          top: 63px;
+          top: 65px;
         }
       }
 
@@ -411,6 +410,7 @@
           bottom: 50%;
           border-left: @voip-plan-links;
           height: 100%;
+          margin-top: -13px;
         }
 
         &::after {
@@ -426,7 +426,7 @@
         }
 
         &:last-child::after {
-          border-top: 3px solid #122844;
+          border-top: 3px solid #0050d7;
           width: 25px;
           top: 50%;
         }
@@ -475,7 +475,7 @@
 
           &:last-child::after {
             border: 0 none;
-            border-top: 3px solid #122844;
+            border-top: 3px solid #0050d7;
             width: 25px;
             top: 50%;
           }
@@ -503,7 +503,7 @@
         display: flex;
         align-items: center;
         padding: 10px 10px;
-        width: 375px;
+        width: 400px;
         height: 64px;
         justify-content: center;
       }
@@ -516,7 +516,7 @@
     &__number {
       display: flex;
       align-items: center;
-      width: 375px;
+      width: 400px;
       justify-content: space-between;
       padding: 0 10px;
       z-index: 5;
@@ -545,14 +545,14 @@
         height: inherit;
 
         &-icon {
-          font-size: 35px !important;
+          font-size: 25px !important;
           margin-left: 3px !important;
         }
 
         &-wrapper {
           background-color: lighten(@oui-color-secondary, 30%);
-          width: 40px;
-          height: 40px;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
 
           &:hover {
@@ -573,7 +573,7 @@
       padding: 0 10px;
       z-index: 4;
       margin-top: 441px;
-      width: 375px;
+      width: 400px;
       justify-content: space-between;
       align-items: center;
       position: absolute;
