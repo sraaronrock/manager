@@ -104,7 +104,7 @@
                 role="alert"
             >
                 <span
-                    class="oui-icon oui-icon-warning_circle"
+                    class="oui-icon oui-icon-warning-circle"
                     aria-hidden="true"
                 ></span>
                 <span>
@@ -123,7 +123,7 @@
                 role="alert"
             >
                 <span
-                    class="oui-icon oui-icon-warning_circle"
+                    class="oui-icon oui-icon-warning-circle"
                     aria-hidden="true"
                 ></span>
                 <span>
@@ -142,7 +142,7 @@
                 role="alert"
             >
                 <span
-                    class="oui-icon oui-icon-warning_circle"
+                    class="oui-icon oui-icon-warning-circle"
                     aria-hidden="true"
                 ></span>
                 <span>
@@ -176,6 +176,19 @@
         {{:: 'data_processing_submit_job_stepper_spark_arguments_label' |
         translate }}
     </span>
+    <div class="oui-field__warning-show">
+        <span role="alert">
+            <span
+                class="oui-icon oui-icon-warning-circle"
+                aria-hidden="true"
+            ></span>
+            <span>
+                {{
+                ::'data_processing_submit_job_stepper_spark_arguments_warning' |
+                translate }}
+            </span>
+        </span>
+    </div>
     <oui-chips
         class="sparkconfig__arguments"
         data-items="$ctrl.state.arguments"

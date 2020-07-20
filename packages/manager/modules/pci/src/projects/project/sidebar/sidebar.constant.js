@@ -131,15 +131,16 @@ export const MENU = [
           state: 'pci.projects.project.analytics-data-platform',
         },
         title: 'Analytics Data Platform',
+        regions: ['EU'],
       },
       {
         id: 'data-processing',
-        beta: true,
+        new: true,
         options: {
           state: 'pci.projects.project.data-processing',
         },
         title: 'Data Processing',
-        regions: ['EU'],
+        regions: ['EU', 'CA'],
       },
       {
         id: 'io-stream',
@@ -152,15 +153,15 @@ export const MENU = [
       },
       {
         id: 'serving',
-        beta: true,
+        new: true,
         options: {
           state: 'pci.projects.project.serving',
         },
-        title: 'Serving Engine',
-        regions: ['EU'],
+        title: 'ML Serving',
+        regions: ['EU', 'CA'],
       },
     ],
-    regions: ['EU'],
+    regions: ['EU', 'CA'],
     title: 'Data & Analytics',
   },
   {

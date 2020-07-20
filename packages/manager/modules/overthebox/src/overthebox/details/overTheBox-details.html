@@ -1,43 +1,32 @@
 <div class="overthebox">
     <header>
-        <oui-dropdown class="d-inline-block" align="start">
-            <button
-                id="btn-otb-details"
-                type="button"
-                class="btn btn-primary"
-                oui-dropdown-trigger
+        <oui-dropdown data-placement="start">
+            <oui-dropdown-trigger
+                text="{{::'overTheBox_action_update_label' | translate}}"
             >
-                <span data-translate="overTheBox_action_update_label"></span>
-                <span
-                    class="ovh-font ovh-font-small-arrow-down"
-                    aria-hidden="true"
-                ></span>
-            </button>
+            </oui-dropdown-trigger>
             <oui-dropdown-content>
-                <button
-                    type="button"
-                    class="btn btn-link text-left"
-                    data-ng-click="OverTheBoxDetails.LaunchAction('sysupgrade')"
-                    data-ng-disabled="!OverTheBoxDetails.availableAction.sysupgrade"
+                <oui-dropdown-item
+                    data-disabled="!OverTheBoxDetails.availableAction.sysupgrade"
+                    data-on-click="OverTheBoxDetails.LaunchAction('sysupgrade')"
                 >
                     <span
-                        class="d-block"
+                        class="d-block mb-1"
                         data-translate="overTheBox_action_sysupgrade_title"
                     ></span>
                     <small
                         class="d-block"
                         data-translate="overTheBox_action_sysupgrade_label"
                     ></small>
-                </button>
+                </oui-dropdown-item>
             </oui-dropdown-content>
         </oui-dropdown>
-        <button
-            class="btn btn-primary"
-            type="button"
-            data-ng-click="OverTheBoxDetails.LaunchAction('reboot')"
-            data-ng-disabled="!OverTheBoxDetails.availableAction.reboot"
-            data-translate="overTheBox_action_reboot_label"
-        ></button>
+        <oui-button
+            data-disabled="!OverTheBoxDetails.availableAction.reboot"
+            data-on-click="OverTheBoxDetails.LaunchAction('reboot')"
+        >
+            <span data-translate="overTheBox_action_reboot_label"></span>
+        </oui-button>
     </header>
 
     <div class="telecom-section-content">
@@ -71,7 +60,7 @@
             <!-- General Information -->
             <div class="oui-tile">
                 <h3
-                    class="oui-header_3 oui-tile__title"
+                    class="oui-tile__title oui-heading_3"
                     data-translate="overthebox_general_information"
                 ></h3>
                 <div class="row">
@@ -290,7 +279,7 @@
                 <div class="col-md-6">
                     <div class="oui-tile mb-5">
                         <h3
-                            class="oui-header_3 oui-tile__title"
+                            class="oui-tile__title oui-heading_3"
                             data-translate="overthebox_traffic_download"
                         ></h3>
                         <div
@@ -342,7 +331,7 @@
                 <div class="col-md-6">
                     <div class="oui-tile mb-5">
                         <h3
-                            class="oui-header_3 oui-tile__title"
+                            class="oui-tile__title oui-heading_3"
                             data-translate="overthebox_traffic_upload"
                         ></h3>
                         <div

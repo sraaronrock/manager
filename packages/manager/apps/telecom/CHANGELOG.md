@@ -1,3 +1,31 @@
+## [12.6.3](https://github.com/ovh/manager/compare/@ovh-ux/manager-telecom@12.6.2...@ovh-ux/manager-telecom@12.6.3) (2020-07-16)
+
+
+### Bug Fixes
+
+* **pack.xdsl:** update access restriction ([#3264](https://github.com/ovh/manager/issues/3264)) ([2dce069](https://github.com/ovh/manager/commit/2dce06933de9467eaaf7a9112c7bcfef778b8128))
+
+
+
+## [12.6.2](https://github.com/ovh/manager/compare/@ovh-ux/manager-telecom@12.6.1...@ovh-ux/manager-telecom@12.6.2) (2020-07-15)
+
+
+### Bug Fixes
+
+* **pack.xdsl.notifications:** retrieve successfully notifications ([#3247](https://github.com/ovh/manager/issues/3247)) ([e861d1f](https://github.com/ovh/manager/commit/e861d1ff837d7d748288805966fda0c9cce02623))
+
+
+
+## [12.6.1](https://github.com/ovh/manager/compare/@ovh-ux/manager-telecom@12.6.0...@ovh-ux/manager-telecom@12.6.1) (2020-07-09)
+
+
+### Bug Fixes
+
+* **telecom:** fix sidebar not displayed on mobile ([8b5c108](https://github.com/ovh/manager/commit/8b5c108fcdba25f1a0f239111c6c130b8d789362))
+* **telephony.alias.statistics:** use agent line number and description ([49e4bdb](https://github.com/ovh/manager/commit/49e4bdb3e210674ed152f724e631c8686cb8869d))
+
+
+
 # [12.6.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-telecom@12.5.1...@ovh-ux/manager-telecom@12.6.0) (2020-07-08)
 
 

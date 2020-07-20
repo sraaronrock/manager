@@ -1,3 +1,79 @@
+## [3.25.2](https://github.com/ovh/manager/compare/@ovh-ux/manager-pci@3.25.1...@ovh-ux/manager-pci@3.25.2) (2020-07-16)
+
+
+### Bug Fixes
+
+* **serving.namespace.models.add:** update pricing precision ([#3282](https://github.com/ovh/manager/issues/3282)) ([3c5ade6](https://github.com/ovh/manager/commit/3c5ade6af19efc2c8c83595bdfa16ea1c862cdcc)), closes [#3182](https://github.com/ovh/manager/issues/3182)
+
+
+
+## [3.25.1](https://github.com/ovh/manager/compare/@ovh-ux/manager-pci@3.25.0...@ovh-ux/manager-pci@3.25.1) (2020-07-16)
+
+
+### Bug Fixes
+
+* **data-processing:** remove lab check ([#3278](https://github.com/ovh/manager/issues/3278)) ([0c5285a](https://github.com/ovh/manager/commit/0c5285aab7e317a5c5d64da3995b3e493cd7256a)), closes [#3128](https://github.com/ovh/manager/issues/3128)
+
+
+
+# [3.25.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-pci@3.24.0...@ovh-ux/manager-pci@3.25.0) (2020-07-16)
+
+
+### Bug Fixes
+
+* **dataprocessing:** activation spinner added ([b92692e](https://github.com/ovh/manager/commit/b92692ed7da24a8afbb6b4521d1e4260a74a0840))
+* **dataprocessing:** minute pricing precision added ([40f65e6](https://github.com/ovh/manager/commit/40f65e6a004860dc4fa000a5a103d6262c66e77d))
+* **i18n:** add missing translations [CDS 450] ([bbd965b](https://github.com/ovh/manager/commit/bbd965b32d8987549bd8ff7b5d7c60b51a9a20ad))
+* **pci.dataprocessing:** added missing tracking ([797e744](https://github.com/ovh/manager/commit/797e744c4479236deaebd6a5895d34bda26380c3))
+* **pci.dataprocessing:** wrong module name ([6f64e08](https://github.com/ovh/manager/commit/6f64e08abd5507bb71efa95693be84307c01cdbb))
+
+
+### Features
+
+* **pci.dataprocessing:** added missing tracking ([c6feccc](https://github.com/ovh/manager/commit/c6feccc607c94b8dd4b771570da466e2d40f7fdd))
+* **pci.dataprocessing:** added price computation ([766e0aa](https://github.com/ovh/manager/commit/766e0aa7e0366bf5d21ec2c6ee447f508729fcf1))
+* **pci.dataprocessing:** added warning on args ([bb39e4d](https://github.com/ovh/manager/commit/bb39e4d365fc33357c3c7dc5aea01781339d01a9))
+* **pci.dataprocessing:** changed beta to new in sidebar ([42a1ffe](https://github.com/ovh/manager/commit/42a1ffe0e20b7409300588b5eeed7d8665a7647c))
+* **pci.dataprocessing:** make service available in CA ([d3c6b13](https://github.com/ovh/manager/commit/d3c6b1332ba80f0a429345e921f4ed6e48b24dab))
+* **pci.dataprocessing:** removed beta contract signup ([bf4628e](https://github.com/ovh/manager/commit/bf4628e0e0ed24a2009c554c98edd927a7e7df8e))
+* **pci.dataprocessing:** updated logo ([f889dc8](https://github.com/ovh/manager/commit/f889dc8ebc400c1a83f38ddb699b76af0111c1e4))
+* **sidebar:** enable data analytics section in CA ([#3260](https://github.com/ovh/manager/issues/3260)) ([31f4cfa](https://github.com/ovh/manager/commit/31f4cfad4c048bb0b1ac8b6dac1bb9b45a902d0c))
+
+
+
+# [3.24.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-pci@3.23.5...@ovh-ux/manager-pci@3.24.0) (2020-07-16)
+
+
+### Bug Fixes
+
+* **i18n:** add missing translations [CDS 470] ([810b5e3](https://github.com/ovh/manager/commit/810b5e3ad2589fb6001514060f9ba810dc36acf8))
+* **pci.project.sidebar:** enable ML Serving for CA region ([#2988](https://github.com/ovh/manager/issues/2988)) ([4308e55](https://github.com/ovh/manager/commit/4308e55e0658c1277c8f82d0c593422f806fbe9f))
+
+
+### Features
+
+* enhance ML Serving section ([#3120](https://github.com/ovh/manager/issues/3120)) ([d9f174d](https://github.com/ovh/manager/commit/d9f174d04de5603f8f37f79ae23cec24ec4cdfb7))
+
+
+
+## [3.23.5](https://github.com/ovh/manager/compare/@ovh-ux/manager-pci@3.23.4...@ovh-ux/manager-pci@3.23.5) (2020-07-10)
+
+
+### Bug Fixes
+
+* **instances.add:** typo in translations file for extra bandwith ([#3236](https://github.com/ovh/manager/issues/3236)) ([c5cf703](https://github.com/ovh/manager/commit/c5cf7033f8499b8777b93e281ed5a34cdf6de3b0))
+
+
+
+## [3.23.4](https://github.com/ovh/manager/compare/@ovh-ux/manager-pci@3.23.3...@ovh-ux/manager-pci@3.23.4) (2020-07-09)
+
+
+### Bug Fixes
+
+* **instance.edit:** display flex tooltip help message ([#3214](https://github.com/ovh/manager/issues/3214)) ([91c778b](https://github.com/ovh/manager/commit/91c778b2cdd7c4b1bad0d420b1a1755abaa1fb86))
+
+
+
 ## [3.23.3](https://github.com/ovh/manager/compare/@ovh-ux/manager-pci@3.23.2...@ovh-ux/manager-pci@3.23.3) (2020-07-08)
 
 
