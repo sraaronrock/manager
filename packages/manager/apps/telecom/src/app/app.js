@@ -14,6 +14,7 @@ import ovhManagerSms from '@ovh-ux/manager-sms';
 import ovhManagerTelecomTask from '@ovh-ux/manager-telecom-task';
 import ngAtInternet from '@ovh-ux/ng-at-internet';
 import ngAtInternetUiRouterPlugin from '@ovh-ux/ng-at-internet-ui-router-plugin';
+import ovhManagerAccountMigration from '@ovh-ux/manager-account-migration';
 import ngOvhCheckboxTable from '@ovh-ux/ng-ovh-checkbox-table';
 import ngOvhUiConfirmModal from '@ovh-ux/ng-ovh-ui-confirm-modal';
 import ngOvhApiWrappers from '@ovh-ux/ng-ovh-api-wrappers';
@@ -105,6 +106,7 @@ angular
       'ovh-api-services',
       'ovh-ng-input-password',
       ovhManagerAccountSidebar,
+      ovhManagerAccountMigration,
       ovhManagerBetaPreference,
       ovhManagerCore,
       ovhManagerDashboard,
