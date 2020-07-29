@@ -1,136 +1,165 @@
 #!/usr/bin/env node
-const execa = require('execa');
 const program = require('commander');
+const execa = require('execa');
+const flatten = require('lodash/flatten');
+const unionBy = require('lodash/unionBy');
 const path = require('path');
-const remove = require('lodash/remove');
-const EventEmitter = require('events');
-const { Worker } = require('worker_threads');
+const ProgressBar = require('progress');
+const { Worker, SHARE_ENV } = require('worker_threads');
 
-EventEmitter.defaultMaxListeners = 100; // Increase the default limit to avoid memory leaks
+/**
+ * Get packages that has been recently changed.
+ * @return {Promise<string[]>} List of changed packages.
+ */
+async function getChanges() {
+  // Tiny utility function to pick only a package name.
+  const output = (list, key = 'name') =>
+    JSON.parse(list).map((pkg) => pkg[key]);
 
-const myEmitter = new EventEmitter();
+  // Not used for an optimized build (use `lerna changed` instead).
+  let listCommand = 'lerna list --all --json';
 
-let modules;
-let i = 0;
+  // Build a single application.
+  if (program.package) {
+    console.log('Build a single package application.');
 
-async function retrieveDependencies(_modules) {
-  const packages = await Promise.all(
-    _modules.map((pck) =>
-      execa
-        .command(
-          `lerna list -alp --include-dependencies --json --scope="${pck.name}"`,
-          { shell: true },
-        )
-        .then(({ stdout }) => {
-          const dependents = JSON.parse(stdout).filter(
-            (p) => p.name !== pck.name,
-          );
-          return Object.assign(pck, { dependents });
-        }),
-    ),
-  );
-  return packages;
-}
+    const allowedWorkspace = 'packages/manager/apps';
 
-function unstack() {
-  console.log(`-=-=-=- #${i} -=-=-=-`);
-  console.log(
-    `TODO (${modules.todo.length})`,
-    modules.todo.map((m) => m.name).join(', '),
-  );
-  console.log(
-    `DOING (${modules.doing.length})`,
-    modules.doing.map((m) => m.name).join(', '),
-  );
-  console.log(
-    `DONE (${modules.done.length})`,
-    modules.done.map((m) => m.name).join(', '),
-  );
-  modules.todo.map((pck) => {
-    const deps = pck.dependents.filter(
-      (dep) => !modules.done.find((el) => el.name === dep.name),
+    // Only packages located in a specific workspace can be builded.
+    const { stdout: location } = await execa.command(
+      `lerna exec --scope ${program.package} -- pwd`,
+      {
+        shell: true,
+      },
     );
 
-    if (
-      deps.length === 0 &&
-      (!program.numWorkers || modules.doing.length < program.numWorkers)
-    ) {
-      const workerData = remove(modules.todo, (p) => p.name === pck.name)[0];
-      modules.doing.push(workerData);
-
-      const promise = program.dryRun
-        ? Promise.resolve()
-        : new Promise((resolve, reject) => {
-            const worker = new Worker(
-              path.join(__dirname, '/worker/build_module.js'),
-              {
-                workerData,
-              },
-            );
-
-            worker.on('online', () => {
-              console.log(
-                `Launching intensive build task for package ${workerData.name}`,
-              );
-            });
-            worker.on('message', (messageFromWorker) => {
-              console.log(messageFromWorker);
-            });
-            worker.on('error', reject);
-            worker.on('exit', (code) => {
-              if (code) {
-                reject(new Error(`Worker stopped with exit code ${code}`));
-              }
-              resolve();
-            });
-          });
-
-      return promise
-        .then(() => {
-          remove(modules.doing, workerData);
-          modules.done.push(workerData);
-          myEmitter.emit('unstack');
-        })
-        .catch(() => {
-          process.exit(1);
-        });
+    // Wrong package location.
+    if (!location.includes(allowedWorkspace)) {
+      console.error(
+        `The package '${program.package}' can't be found in the given '${allowedWorkspace}' workspace.`,
+      );
+      process.exit(1);
     }
-    return null;
+
+    listCommand += ` --scope=${program.package} --include-dependencies`;
+    const { stdout } = await execa.command(listCommand, { shell: true });
+
+    return output(stdout);
+  }
+
+  // Build all applications.
+  if (program.all) {
+    console.log('Build all applications.');
+
+    const { stdout } = await execa.command(listCommand, { shell: true });
+
+    return output(stdout);
+  }
+
+  // Build only applications that has recently changed (compared to latest tag).
+  console.log('Build only changed packages.');
+
+  const { stdout } = await execa.command(
+    'lerna changed --all --include-merged-tags --json --toposort',
+    {
+      shell: true,
+    },
+  );
+
+  return output(stdout);
+}
+
+/**
+ * Generate a graph of dependencies in topological order.
+ * @param  {Array<string>} packages  List of packages that has recently changed.
+ * @return {Promise<Array>}          Packages' list sorted in topological order.
+ */
+async function getDependenciesGraph(packages) {
+  const dependenciesGraph = packages.map((packageName) => {
+    return execa
+      .command(
+        `lerna list --all --include-dependencies --json --long --toposort --scope=${packageName}`,
+        { shell: true },
+      )
+      .then(({ stdout }) => JSON.parse(stdout));
   });
-  i += 1;
+
+  const graph = await Promise.all(dependenciesGraph).then((dependencyGraph) =>
+    unionBy(flatten(dependencyGraph), 'name'),
+  );
+
+  return graph;
+}
+
+/**
+ * Perform an intensive build task by using Worker Threads.
+ * @param  {Array} packages   Requires to be build in topological order.
+ * @return {Promise}
+ */
+async function launchBuild(packages) {
+  console.log(`${packages.length} package(s) require a build process.`);
+
+  // Display a progress bar when not in verbose mode.
+  let bar;
+  if (!program.verbose) {
+    bar = new ProgressBar('  buidling [:bar] :percent', {
+      complete: '=',
+      incomplete: ' ',
+      width: 20,
+      total: packages.length,
+    });
+  }
+
+  return Promise.all(
+    packages.map((pkg) => {
+      const promise = new Promise((resolve, reject) => {
+        const worker = new Worker(
+          path.join(__dirname, '/worker/build_module.js'),
+          {
+            workerData: pkg,
+            env: SHARE_ENV,
+          },
+        );
+        worker.on('message', resolve);
+        worker.on('error', reject);
+        worker.on('exit', (code) => {
+          if (code !== 0) {
+            reject(new Error(`Worker stopped with exit code ${code}`));
+          }
+          if (!program.verbose) {
+            bar.tick();
+          }
+        });
+      });
+
+      return promise;
+    }),
+  )
+    .then(() => {
+      console.log('');
+      console.log('Build operation has been done successfully!');
+      console.log('');
+    })
+    .catch((error) => {
+      console.error(error);
+      process.exit(1);
+    });
 }
 
 program
-  .option('--dry-run', 'Launch the build script without creating dist')
+  .version('0.0.1')
+  .option('-a, --all', 'Build all applications')
   .option(
-    '--num-workers [maxWorkers]',
-    'Limit the number of worker threads',
-    parseInt,
-  )
-  .option(
-    '-p, --package [package]',
+    '-p, --package <package>',
     'Scope build to a specific package and its dependencies',
   )
-  .action(() => {
-    return execa
-      .command(
-        `lerna list -alp --json ${
-          program.package
-            ? `--scope=${program.package} --include-dependencies`
-            : ''
-        }`,
-        { shell: true },
-      )
-      .then(({ stdout }) => retrieveDependencies(JSON.parse(stdout)))
-      .then((todo) => {
-        modules = {
-          todo,
-          doing: [],
-          done: [],
-        };
+  .option('--verbose', 'output extra debugging')
+  .action(async () => {
+    process.env.VERBOSE = program.verbose;
 
-        myEmitter.on('unstack', () => unstack());
-        myEmitter.emit('unstack');
-      });
-  })
-  .parse(process.argv);
+    const changes = await getChanges();
+    const dependenciesGraph = await getDependenciesGraph(changes);
+    await launchBuild(dependenciesGraph);
+  });
+
+program.parse(process.argv);

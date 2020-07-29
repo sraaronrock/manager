@@ -1,11 +1,14 @@
 const { parentPort, workerData } = require('worker_threads');
 const execa = require('execa');
+const yn = require('yn');
 
 execa
-  .command(`cd ${workerData.location} && npm run build --if-present`, {
+  // .command(`cd ${workerData.location} && pwd`, {
+  .command(`lerna run --scope ${workerData.name} build`, {
     shell: true,
+    stdio: yn(process.env.VERBOSE) ? 'inherit' : 'ignore',
   })
-  .then(() => parentPort.postMessage(`done - ${workerData.name}`))
+  .then(() => parentPort.postMessage(workerData.location))
   .catch((err) => {
     parentPort.postMessage(`error - ${err.message}
 ${err.all}`);
