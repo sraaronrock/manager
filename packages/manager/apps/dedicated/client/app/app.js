@@ -43,6 +43,7 @@ import ovhManagerVeeamCloudConnect from '@ovh-ux/manager-veeam-cloud-connect';
 import ovhManagerVps from '@ovh-ux/manager-vps';
 import ovhManagerVrack from '@ovh-ux/manager-vrack';
 import ovhManagerIplb from '@ovh-ux/manager-iplb';
+import ovhManagerCloudConnect from '@ovh-ux/manager-cloud-connect';
 import { detach as detachPreloader } from '@ovh-ux/manager-preloader';
 import ovhNotificationsSidebar from '@ovh-ux/manager-notifications-sidebar';
 import account from './account';
@@ -133,6 +134,7 @@ angular
       ovhManagerNavbar,
       ovhManagerVps,
       ovhManagerVrack,
+      ovhManagerCloudConnect,
       ovhPaymentMethod,
       'pascalprecht.translate',
       'services',
@@ -234,6 +236,7 @@ angular
       });
 
       $state.defaultErrorHandler((error) => {
+        console.log(error);
         if (error.type === RejectType.ERROR) {
           $rootScope.$emit('ovh::sidebar::hide');
           $state.go(
