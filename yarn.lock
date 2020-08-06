@@ -14594,7 +14594,7 @@ ovh-api-services@^9.47.0:
 
 "ovh-api-services@git+https://github.com/ovh-ux/ovh-api-services.git#feat/xdsl-meeting":
   version "9.48.0"
-  resolved "git+https://github.com/ovh-ux/ovh-api-services.git#85fec79f5edbcd4da8bd00e27cb3f13242965f91"
+  resolved "git+https://github.com/ovh-ux/ovh-api-services.git#77f82bedf4c187c18581aafa6fee41065c353999"
   dependencies:
     lodash "^4.17.15"
 

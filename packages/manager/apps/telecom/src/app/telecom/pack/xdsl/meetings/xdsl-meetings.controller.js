@@ -28,8 +28,7 @@ export default class XdslMeetingCtrl {
     this.successMessage = '';
 
     // Retrieve list of meetings available
-    return this.OvhApiXdsl.Meeting()
-      .v6()
+    return this.OvhApiXdsl.v6()
       .searchOrderMeetings(this.$scope, {
         serviceName: this.serviceName,
       })
@@ -141,8 +140,7 @@ export default class XdslMeetingCtrl {
   }
 
   orderMeeting() {
-    return this.OvhApiXdsl.Meeting()
-      .v6()
+    return this.OvhApiXdsl.v6()
       .orderMeeting(
         {
           serviceName: this.serviceName,
