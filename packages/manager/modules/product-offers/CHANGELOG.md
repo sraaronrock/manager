@@ -1,3 +1,28 @@
+# [3.1.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-product-offers@3.0.0...@ovh-ux/manager-product-offers@3.1.0) (2020-08-05)
+
+
+### Features
+
+* **pricing:** add PRICING_MODE constant ([a32e1c4](https://github.com/ovh/manager/commit/a32e1c46cccb42368ff31b46308cebb362449fcb))
+
+
+
+# [3.0.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-product-offers@2.0.0...@ovh-ux/manager-product-offers@3.0.0) (2020-07-29)
+
+
+### Features
+
+* upgrade ovh-ui-kit to v4 ([f48f258](https://github.com/ovh/manager/commit/f48f2587c367b06939c452428c5783c2fb1c1b8d))
+
+
+### BREAKING CHANGES
+
+* bump ovh-ui-kit to latest major
+
+Signed-off-by: Axel Peter <axel.peter@live.com>
+
+
+
 # [2.0.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-product-offers@1.3.1...@ovh-ux/manager-product-offers@2.0.0) (2020-07-08)
 
 

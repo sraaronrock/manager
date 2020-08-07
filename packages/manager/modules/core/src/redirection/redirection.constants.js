@@ -25,7 +25,7 @@ const URI = {
   orders: '#/billing/orders',
   paymentMethod: '#/billing/payment/method',
   services: '#/billing/autoRenew',
-  support: '#/support/tickets',
+  support: '#/ticket',
   supportLevel: '#/useraccount/support/level',
   ticket: '#/support/tickets/:ticketId',
   userAccount: '#/useraccount/dashboard',
@@ -130,7 +130,6 @@ export default {
     catalog: `${managerRoot.US}/${URI.catalog}`,
     contactManagement: '',
     contacts: '',
-    createTicket: `${managerRoot.US}/${universes.dedicated}/${URI.createTicket}`,
     debtPay: `${managerRoot.US}/${universes.dedicated}/${URI.debtPay}`,
     domain: '',
     guides: {

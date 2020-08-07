@@ -1,3 +1,73 @@
+## [10.1.1](https://github.com/ovh/manager/compare/@ovh-ux/manager-cloud@10.1.0...@ovh-ux/manager-cloud@10.1.1) (2020-08-06)
+
+
+### Bug Fixes
+
+* add missing account and notifications sidebar components ([#3390](https://github.com/ovh/manager/issues/3390)) ([2d6db61](https://github.com/ovh/manager/commit/2d6db6164a69eb43c67c29b3a2e28a23f5371ab5))
+
+
+
+# [10.1.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-cloud@10.0.2...@ovh-ux/manager-cloud@10.1.0) (2020-08-05)
+
+
+### Features
+
+* **manager:** import manager-account-sidebar ([bdfd5f9](https://github.com/ovh/manager/commit/bdfd5f9c69acdf2c393712401fc2374a472c7eee))
+
+
+
+## [10.0.2](https://github.com/ovh/manager/compare/@ovh-ux/manager-cloud@10.0.1...@ovh-ux/manager-cloud@10.0.2) (2020-08-05)
+
+
+### Bug Fixes
+
+* **deps:** upgrade @ovh-ux/ui-kit to v4.2.3 ([#3376](https://github.com/ovh/manager/issues/3376)) ([fd461ba](https://github.com/ovh/manager/commit/fd461ba26ce7d77328c6951594e3c49ffee51b19))
+
+
+
+## [10.0.1](https://github.com/ovh/manager/compare/@ovh-ux/manager-cloud@10.0.0...@ovh-ux/manager-cloud@10.0.1) (2020-07-29)
+
+
+### Bug Fixes
+
+* **deps:** use latest dependencies ([#3335](https://github.com/ovh/manager/issues/3335)) ([01d3a89](https://github.com/ovh/manager/commit/01d3a8901b7d2404f6299c4c04e1630146b6f2d8))
+
+
+
+# [10.0.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-cloud@9.6.0...@ovh-ux/manager-cloud@10.0.0) (2020-07-29)
+
+
+### Bug Fixes
+
+* **cda.ip.delete:** use oui-modal component ([5f848ca](https://github.com/ovh/manager/commit/5f848ca357eb55f71573e6a426501d6dc1f8ddab))
+* **cda.pool.delete:** use oui-modal component ([3beb55f](https://github.com/ovh/manager/commit/3beb55f3be5459963741740824bbeb96a203bc20))
+* **cda.user.delete:** use oui-modal component ([8df6346](https://github.com/ovh/manager/commit/8df63465c174e7ed07631e6bb5ed324213974e5c))
+* **dbaas.logs.header:** remove duplicate header tabs ([f02e568](https://github.com/ovh/manager/commit/f02e568fc95624e295f0061c7b28e9ff7bfdbb45))
+* **dbaas.metrics.header:** display guide dropdown correctly ([b0de44c](https://github.com/ovh/manager/commit/b0de44c933bc3d100b7faa5a2cef0ac61683ec1d))
+* **dbaas.metrics.token.add:** improve form layout ([9c26ed0](https://github.com/ovh/manager/commit/9c26ed0c9bdc074e77bd4a70f6025e71a11b8b67))
+* **dropdown-menu:** use uib-dropdown for toggling ([0f16566](https://github.com/ovh/manager/commit/0f16566676ef8681324b39bf182340c14eab32dc))
+* **i18n:** add missing translations [CDS 498] ([a49c034](https://github.com/ovh/manager/commit/a49c034041b832c9e2dc1a8745d26635ef6fd074))
+* **icon:** fix oui-icon-trash_concept ([#3287](https://github.com/ovh/manager/issues/3287)) ([9347797](https://github.com/ovh/manager/commit/934779770b4db186cc4ed53caf3ca216853367c7))
+
+
+### Features
+
+* **dbaas.logs:** add more information on main lists ([#3197](https://github.com/ovh/manager/issues/3197)) ([90aa821](https://github.com/ovh/manager/commit/90aa821cce18e0620bd412ed100a0f423c7cda2c))
+* upgrade ovh-ui-kit to v4 ([f48f258](https://github.com/ovh/manager/commit/f48f2587c367b06939c452428c5783c2fb1c1b8d))
+* upgrade ovh-ui-kit-bs to v4 ([d649cd7](https://github.com/ovh/manager/commit/d649cd7d566ac39d172b2e36625fde83bd99c9f5))
+
+
+### BREAKING CHANGES
+
+* bump ovh-ui-kit to latest major
+
+Signed-off-by: Axel Peter <axel.peter@live.com>
+* bump ovh-ui-kit-bs to latest major
+
+Signed-off-by: Axel Peter <axel.peter@live.com>
+
+
+
 # [9.6.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-cloud@9.5.2...@ovh-ux/manager-cloud@9.6.0) (2020-06-26)
 
 

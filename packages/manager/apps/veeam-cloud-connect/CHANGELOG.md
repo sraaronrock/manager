@@ -1,3 +1,37 @@
+## [2.0.2](https://github.com/ovh/manager/compare/@ovh-ux/manager-veeam-cloud-connect-app@2.0.1...@ovh-ux/manager-veeam-cloud-connect-app@2.0.2) (2020-08-05)
+
+
+### Bug Fixes
+
+* **deps:** upgrade @ovh-ux/ui-kit to v4.2.3 ([#3376](https://github.com/ovh/manager/issues/3376)) ([fd461ba](https://github.com/ovh/manager/commit/fd461ba26ce7d77328c6951594e3c49ffee51b19))
+
+
+
+## [2.0.1](https://github.com/ovh/manager/compare/@ovh-ux/manager-veeam-cloud-connect-app@2.0.0...@ovh-ux/manager-veeam-cloud-connect-app@2.0.1) (2020-07-29)
+
+
+### Bug Fixes
+
+* **deps:** use latest dependencies ([#3335](https://github.com/ovh/manager/issues/3335)) ([01d3a89](https://github.com/ovh/manager/commit/01d3a8901b7d2404f6299c4c04e1630146b6f2d8))
+
+
+
+# [2.0.0](https://github.com/ovh/manager/compare/@ovh-ux/manager-veeam-cloud-connect-app@1.1.1...@ovh-ux/manager-veeam-cloud-connect-app@2.0.0) (2020-07-29)
+
+
+### Features
+
+* upgrade ovh-ui-kit to v4 ([f48f258](https://github.com/ovh/manager/commit/f48f2587c367b06939c452428c5783c2fb1c1b8d))
+
+
+### BREAKING CHANGES
+
+* bump ovh-ui-kit to latest major
+
+Signed-off-by: Axel Peter <axel.peter@live.com>
+
+
+
 ## [1.1.1](https://github.com/ovh/manager/compare/@ovh-ux/manager-veeam-cloud-connect-app@1.1.0...@ovh-ux/manager-veeam-cloud-connect-app@1.1.1) (2020-06-09)
 
 
