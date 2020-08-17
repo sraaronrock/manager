@@ -107,7 +107,7 @@ export default class CloudConnectOverviewCtrl {
 
   loadDatacenterConfigurations() {
     this.cloudConnectService
-      .loadDatacenterConfigurations(this.cloudConnect, this.dataCenters)
+      .loadDatacenterConfigurations(this.cloudConnect, this.datacenters)
       .then(() => {
         if (this.cloudConnect.datacenterConfigurations) {
           return this.cloudConnectService.getExtras(this.cloudConnect);

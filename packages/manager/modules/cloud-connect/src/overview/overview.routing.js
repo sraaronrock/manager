@@ -7,7 +7,7 @@ export default /* @ngInject */ ($stateProvider) => {
       format: 'json',
     },
     resolve: {
-      dataCenters: /* @ngInject */ (cloudConnectService, cloudConnect) =>
+      datacenters: /* @ngInject */ (cloudConnectService, cloudConnect) =>
         cloudConnectService.loadDatacenters(cloudConnect),
       goToAssociateVrackPage: /* @ngInject */ ($state) => () =>
         $state.go('cloud-connect.overview.associate-vrack'),
@@ -83,26 +83,26 @@ export default /* @ngInject */ ($stateProvider) => {
             reload,
           },
         );
-        if (message) {
-          promise.then(() => {
-            if (vrackId) {
-              cloudConnectService
-                .getVrackAssociatedCloudConnect(vrackId)
-                .then((res) => {
-                  if (res) {
-                    CucCloudMessage.warning(
-                      $translate.instant(
-                        'cloud_connect_vrack_associate_cloud_connect',
-                      ),
-                      state,
-                    );
-                  }
-                });
-            }
+        promise.then(() => {
+          if (vrackId) {
+            cloudConnectService
+              .getVrackAssociatedCloudConnect(vrackId)
+              .then((res) => {
+                if (res) {
+                  CucCloudMessage.warning(
+                    $translate.instant(
+                      'cloud_connect_vrack_associate_cloud_connect',
+                    ),
+                    state,
+                  );
+                }
+              });
+          }
+          if (message) {
             CucCloudMessage[type](message, state);
             CucControllerHelper.scrollPageToTop();
-          });
-        }
+          }
+        });
         return promise;
       },
     },
