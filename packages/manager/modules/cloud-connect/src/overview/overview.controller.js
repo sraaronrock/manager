@@ -36,9 +36,9 @@ export default class CloudConnectOverviewCtrl {
   }
 
   loadMessages() {
-    this.CucCloudMessage.unSubscribe('cloud-connect.overview');
+    this.CucCloudMessage.unSubscribe('cloud-connect.details.overview');
     this.messageHandler = this.CucCloudMessage.subscribe(
-      'cloud-connect.overview',
+      'cloud-connect.details.overview',
       {
         onMessage: () => this.refreshMessages(),
       },
