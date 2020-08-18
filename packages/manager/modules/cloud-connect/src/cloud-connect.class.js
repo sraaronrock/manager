@@ -5,8 +5,8 @@ import { POP_TYPE_CONSTANT, STATUS } from './cloud-connect.constants';
 
 export default class CloudConnect {
   constructor(cloudConnect) {
-    set(cloudConnect, 'id', cloudConnect.uuid);
     Object.assign(this, cloudConnect);
+    this.id = cloudConnect.uuid;
     this.datacenterConfigurations = [];
     this.availableDatacenters = [];
     this.popConfiguration = {};

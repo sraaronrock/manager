@@ -4,8 +4,9 @@ import '@ovh-ux/manager-core';
 import '@uirouter/angularjs';
 import 'angular-translate';
 import 'oclazyload';
+import ngOvhCloudUniverseComponents from '@ovh-ux/ng-ovh-cloud-universe-components';
 
-const moduleName = 'ovhCloudConnectDetailsLazyLoading';
+const moduleName = 'ovhCloudConnectDetailsUnlockPortLazyLoading';
 
 angular
   .module(moduleName, [
@@ -13,15 +14,16 @@ angular
     'pascalprecht.translate',
     'ui.router',
     'oc.lazyLoad',
+    ngOvhCloudUniverseComponents,
   ])
   .config(
     /* @ngInject */ ($stateProvider) => {
-      $stateProvider.state('cloud-connect.details.**', {
-        url: '/details/:ovhCloudConnectId',
+      $stateProvider.state('cloud-connect.details.overview.unlock-port.**', {
+        url: '/port/:interfaceId/unlock',
         lazyLoad: ($transition$) => {
           const $ocLazyLoad = $transition$.injector().get('$ocLazyLoad');
 
-          return import('./details.module').then((mod) =>
+          return import('./unlock-port.module').then((mod) =>
             $ocLazyLoad.inject(mod.default || mod),
           );
         },

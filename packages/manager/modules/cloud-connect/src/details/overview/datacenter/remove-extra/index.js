@@ -4,8 +4,9 @@ import '@ovh-ux/manager-core';
 import '@uirouter/angularjs';
 import 'angular-translate';
 import 'oclazyload';
+import ngOvhCloudUniverseComponents from '@ovh-ux/ng-ovh-cloud-universe-components';
 
-const moduleName = 'ovhCloudConnectDetailsLazyLoading';
+const moduleName = 'ovhCloudConnectDetailsRemoveRoutingLazyLoading';
 
 angular
   .module(moduleName, [
@@ -13,15 +14,16 @@ angular
     'pascalprecht.translate',
     'ui.router',
     'oc.lazyLoad',
+    ngOvhCloudUniverseComponents,
   ])
   .config(
     /* @ngInject */ ($stateProvider) => {
-      $stateProvider.state('cloud-connect.details.**', {
-        url: '/details/:ovhCloudConnectId',
+      $stateProvider.state('cloud-connect.details.overview.remove-extra.**', {
+        url: '/datacenter/:datacenterId/extra/:extraId/remove',
         lazyLoad: ($transition$) => {
           const $ocLazyLoad = $transition$.injector().get('$ocLazyLoad');
 
-          return import('./details.module').then((mod) =>
+          return import('./remove-extra.module').then((mod) =>
             $ocLazyLoad.inject(mod.default || mod),
           );
         },

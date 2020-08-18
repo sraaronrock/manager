@@ -5,7 +5,7 @@ import '@uirouter/angularjs';
 import 'angular-translate';
 import 'oclazyload';
 
-const moduleName = 'ovhCloudConnectDetailsLazyLoading';
+const moduleName = 'ovhCloudConnectDetailsDatacenterAddLazyLoading';
 
 angular
   .module(moduleName, [
@@ -16,12 +16,12 @@ angular
   ])
   .config(
     /* @ngInject */ ($stateProvider) => {
-      $stateProvider.state('cloud-connect.details.**', {
-        url: '/details/:ovhCloudConnectId',
+      $stateProvider.state('cloud-connect.details.overview.datacenter-add.**', {
+        url: '/datacenter/add',
         lazyLoad: ($transition$) => {
           const $ocLazyLoad = $transition$.injector().get('$ocLazyLoad');
 
-          return import('./details.module').then((mod) =>
+          return import('./datacenter-add.module').then((mod) =>
             $ocLazyLoad.inject(mod.default || mod),
           );
         },
