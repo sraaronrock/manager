@@ -13,7 +13,6 @@
         data-loading="$ctrl.isLoading"
         data-primary-disabled="$ctrl.isLoading"
     >
-        <span data-translate="cloud_connect_datacenter_add_description"></span>
         <oui-field
             data-label="{{:: 'cloud_connect_datacenter_add_select_title' | translate }}"
             data-size="m"
@@ -38,6 +37,7 @@
             data-size="m"
             data-ng-if="$ctrl.cloudConnect.isL3PopType()"
             data-label="{{::'cloud_connect_datacenter_add_select_asn' | translate}}"
+            label-popover="{{ ::'cloud_connect_datacenter_add_select_asn_popover' | translate }}"
         >
             <input
                 type="number"
@@ -54,8 +54,8 @@
             data-size="m"
             data-ng-if="$ctrl.cloudConnect.isL3PopType()"
             data-label="{{::'cloud_connect_datacenter_add_network_address' | translate}}"
-            data-help-text="{{ ::'cloud_connect_datacenter_add_network_address_help_message' | translate }}"
             data-error-messages="{ 'pattern': ('cloud_connect_datacenter_add_network_address_invalid_message' | translate) }"
+            label-popover="{{ ::'cloud_connect_datacenter_add_network_address_popover' | translate }}"
         >
             <input
                 type="text"

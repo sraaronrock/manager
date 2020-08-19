@@ -38,7 +38,7 @@
                 </div>
                 <!-- UUID -->
                 <oui-tile-definition
-                    data-term="Uuid"
+                    data-term="{{ ::'cloud_connect_uuid' | translate }}"
                     data-description="{{ ::$ctrl.cloudConnect.uuid }}"
                 >
                 </oui-tile-definition>
@@ -64,9 +64,9 @@
                         ></span>
                     </oui-tile-description>
                 </oui-tile-definition>
-                <!-- POP -->
+                <!-- PoP -->
                 <oui-tile-definition
-                    data-term="Pop"
+                    data-term="{{ ::'cloud_connect_pop' | translate }}"
                     data-description="{{ ::$ctrl.getPopDescription($ctrl.cloudConnect.pop) }}"
                 >
                 </oui-tile-definition>
@@ -194,7 +194,7 @@
             </div>
         </div>
 
-        <!-- Configure POP tile -->
+        <!-- Configure PoP tile -->
         <div
             class="col-sm-12 col-md-4"
             data-ng-if="$ctrl.cloudConnect.isVrackAssociated()"
