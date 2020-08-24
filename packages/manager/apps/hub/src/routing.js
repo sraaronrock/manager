@@ -111,7 +111,7 @@ export default /* @ngInject */ ($stateProvider, $urlRouterProvider) => {
     url: '/user-contracts',
     redirectTo: ($transition$) => {
       const { contracts } = $transition$.params();
-      return contracts ? '' : 'app.dashboard';
+      return contracts ? false : 'app.dashboard';
     },
     views: {
       'app@': {
@@ -125,21 +125,9 @@ export default /* @ngInject */ ($stateProvider, $urlRouterProvider) => {
     resolve: {
       contracts: /* @ngInject */ ($transition$) =>
         $transition$.params().contracts,
+      from: /* @ngInject */ () => 'app.dashboard',
     },
   });
-
-  BILLING_REDIRECTIONS.map((url) =>
-    $urlRouterProvider.when(
-      url,
-      /* @ngInject */ ($location, $window, CORE_MANAGER_URLS) => {
-        set(
-          $window,
-          'location',
-          `${CORE_MANAGER_URLS.dedicated}/#${$location.url()}`,
-        );
-      },
-    ),
-  );
 
   $urlRouterProvider.otherwise('/');
 };

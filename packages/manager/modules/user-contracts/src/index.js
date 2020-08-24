@@ -1,12 +1,14 @@
 import angular from 'angular';
 
-import includes from 'lodash/includes';
+import { includes, isEmpty, isArray } from 'lodash';
 import '@ovh-ux/manager-core';
+import '@ovh-ux/ui-kit';
 import '@uirouter/angularjs';
 import 'angular-translate';
 
 import component from './user-contracts.component';
 import service from './user-contracts.service';
+import { CONTRACTS_LIST } from './user-contracts.constant';
 
 const moduleName = 'ovhManagerUserContracts';
 
@@ -15,13 +17,14 @@ angular
   .component('userContracts', component)
   .service('userContractsService', service)
   .run(/* @ngTranslationsInject:json ./translations */)
-  .run(($q, $state, userContractsService) =>
+  .run(($q, $state, coreConfig, userContractsService) =>
     userContractsService
       .getAgreementsToValidate((contract) =>
-        includes(['tos', 'pp'], contract.code),
+        includes(CONTRACTS_LIST, contract.code),
       )
       .then((contracts) => {
-        if (contracts.length > 0) {
+        const region = coreConfig.getRegion();
+        if (region === 'US' && isArray(contracts) && !isEmpty(contracts)) {
           $state.go('app.userContracts', { contracts });
         }
       })
