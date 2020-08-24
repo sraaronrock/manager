@@ -29,6 +29,7 @@ import ovhManagerCore from '@ovh-ux/manager-core';
 import ovhManagerBanner from '@ovh-ux/manager-banner';
 import ovhManagerEnterpriseCloudDatabase from '@ovh-ux/manager-enterprise-cloud-database';
 import ovhManagerMfaEnrollment from '@ovh-ux/mfa-enrollment';
+import ovhManagerUserContracts from '@ovh-ux/manager-user-contracts';
 import ovhManagerNasha from '@ovh-ux/manager-nasha';
 import ovhManagerNavbar from '@ovh-ux/manager-navbar';
 import ovhManagerServerSidebar from '@ovh-ux/manager-server-sidebar';
@@ -58,7 +59,6 @@ import ovhManagerPccResourceUpgrade from './dedicatedCloud/resource/upgrade';
 import dedicatedServer from './dedicated/server';
 
 import datacenterBackup from './dedicatedCloud/datacenter/backup';
-import userContracts from './user-contracts';
 
 Environment.setVersion(__VERSION__);
 
@@ -91,6 +91,7 @@ angular
       'Module.license',
       'Module.otrs',
       ovhManagerMfaEnrollment,
+      ovhManagerUserContracts,
       'ng.ckeditor',
       'ngMessages',
       ngAtInternet,
@@ -143,7 +144,6 @@ angular
       'ui.validate',
       uiRouter,
       'UserAccount',
-      userContracts,
       'xeditable',
     ].filter(isString),
   )
