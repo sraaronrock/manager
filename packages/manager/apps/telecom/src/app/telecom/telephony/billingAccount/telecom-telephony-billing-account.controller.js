@@ -21,7 +21,6 @@ angular
       orderAliasLink,
       phonebookLink,
       servicesLink,
-      SidebarMenu,
       TelephonyMediator,
       TucToast,
       OvhApiOrder,
@@ -60,13 +59,6 @@ angular
         return self.group.save().then(
           () => {
             self.group.stopEdition();
-            SidebarMenu.updateItemDisplay(
-              {
-                title: self.group.getDisplayedName(),
-              },
-              self.group.billingAccount,
-              'telecom-telephony-section',
-            );
           },
           (error) => {
             self.group.stopEdition(true);

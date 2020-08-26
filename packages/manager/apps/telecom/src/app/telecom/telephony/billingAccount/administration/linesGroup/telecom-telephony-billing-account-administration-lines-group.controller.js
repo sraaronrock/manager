@@ -18,7 +18,6 @@ angular
       $q,
       $translate,
       TelephonyMediator,
-      TelephonySidebar,
       OvhApiTelephony,
       TucToast,
       TucToastError,
@@ -264,10 +263,6 @@ angular
                 $translate.instant('telephony_lines_group_attach_warning'),
               );
             }
-
-            // update sidebar with fresh data
-            TelephonyMediator.resetAllCache();
-            TelephonySidebar.reset();
           });
       };
     },
