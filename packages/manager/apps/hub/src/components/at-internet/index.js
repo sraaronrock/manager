@@ -2,6 +2,7 @@ import angular from 'angular';
 import ngAtInternet from '@ovh-ux/ng-at-internet';
 import ngAtInternetUiRouterPlugin from '@ovh-ux/ng-at-internet-ui-router-plugin';
 import ovhManagerCore from '@ovh-ux/manager-core';
+import { Environment } from '@ovh-ux/manager-config';
 
 import TRACKING from './at-internet.constant';
 
@@ -29,18 +30,13 @@ angular
     },
   )
   .run(
-    /* @ngInject */ ($http, atInternet, coreConfig) => {
+    /* @ngInject */ (atInternet, coreConfig) => {
       const config = TRACKING[coreConfig.getRegion()] || {};
-
-      return $http
-        .get('/me')
-        .then(({ data }) => data)
-        .then((me) => {
-          config.countryCode = me.country;
-          config.currencyCode = me.currency && me.currency.code;
-          config.visitorId = me.customerCode;
-          atInternet.setDefaults(config);
-        });
+      config.countryCode = Environment.getUser().country;
+      config.currencyCode =
+        Environment.getUser().currency && Environment.getUser().currency.code;
+      config.visitorId = Environment.getUser().customerCode;
+      atInternet.setDefaults(config);
     },
   );
 
