@@ -274,6 +274,7 @@
                             data-placement="end"
                         >
                             <oui-action-menu-item
+                                data-disabled="$interface.isInProcess()"
                                 data-ng-if="$interface.isEnabled()"
                                 data-on-click="$ctrl.goToLockPortPage(interfaceId)"
                                 ><span
@@ -281,6 +282,7 @@
                                 ></span>
                             </oui-action-menu-item>
                             <oui-action-menu-item
+                                data-disabled="$interface.isInProcess()"
                                 data-ng-if="!$interface.isEnabled()"
                                 data-on-click="$ctrl.goToUnlockPortPage(interfaceId)"
                                 ><span

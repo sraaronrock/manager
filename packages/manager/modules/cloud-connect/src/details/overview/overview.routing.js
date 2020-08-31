@@ -67,9 +67,9 @@ export default /* @ngInject */ ($stateProvider) => {
           extraId,
         }),
       goToManageServiceKeysPage: /* @ngInject */ ($state) => () =>
-        $state.go('cloud-connect.service-keys'),
+        $state.go('cloud-connect.details.service-keys'),
       tasksHref: /* @ngInject */ ($state, cloudConnect) =>
-        $state.href('cloud-connect.tasks', {
+        $state.href('cloud-connect.details.tasks', {
           ovhCloudConnectId: cloudConnect.id,
         }),
       goToCloudConnectPage: /* @ngInject */ (

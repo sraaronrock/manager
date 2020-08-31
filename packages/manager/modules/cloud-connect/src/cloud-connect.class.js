@@ -146,10 +146,12 @@ export default class CloudConnect {
     );
   }
 
-  setInterface(ccInterface) {
-    if (ccInterface.id) {
-      this.interfaces[ccInterface.id] = ccInterface;
-    }
+  setInterface(interfaces) {
+    map(interfaces, (item) => {
+      if (item.id) {
+        this.interfaces[item.id] = item;
+      }
+    });
   }
 
   getInterface(interfaceId) {
