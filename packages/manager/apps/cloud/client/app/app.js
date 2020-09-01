@@ -128,7 +128,7 @@ angular
       CORE_MANAGER_URLSProvider, // eslint-disable-line camelcase
     ) => {
       const dedicatedRedirections = [
-        '/paas/veeam-enterprise',
+        '/veeam-enterprise',
         '/paas/veeam',
         '/iaas/vps',
         '/paas/nasha',
