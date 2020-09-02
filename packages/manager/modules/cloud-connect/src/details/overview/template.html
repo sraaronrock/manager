@@ -419,6 +419,7 @@
                     data-placement="end"
                 >
                     <oui-action-menu-item
+                        data-disabled="!$ctrl.cloudConnect.canCreateDc()"
                         data-on-click="$ctrl.goToDatacenterAddPage()"
                         ><span
                             data-translate="cloud_connect_datacenter_add_configuration"
@@ -432,6 +433,7 @@
                 <oui-tile-description>
                     <oui-button
                         data-variant="primary"
+                        data-disabled="!$ctrl.cloudConnect.canCreateDc()"
                         data-ng-click="$ctrl.goToDatacenterAddPage()"
                         ><span
                             data-translate="cloud_connect_dc_add_button"
