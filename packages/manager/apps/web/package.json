@@ -86,7 +86,7 @@
     "animate.css": "^3.5.0",
     "babel-polyfill": "^6.26.0",
     "bloodhound-js": "^1.2.3",
-    "bootstrap": "^3.3.6",
+    "bootstrap": "^5.0.0",
     "bootstrap-tour": "^0.12.0",
     "bootstrap4": "twbs/bootstrap#v4.0.0",
     "chart.js": "^2.7.2",

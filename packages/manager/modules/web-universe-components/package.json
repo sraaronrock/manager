@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@ovh-ux/ui-kit": "^4.2.3",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^5.0.0"
   },
   "peerDependencies": {
     "@ovh-ux/ng-ovh-http": "^5.0.0",
